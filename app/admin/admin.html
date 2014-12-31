@@ -1,0 +1,114 @@
+﻿<section class="mainbar" data-ng-controller="admin as vm">
+    <section class="matter">
+        <div class="container">
+            <div class="row">
+                <div class="widget wviolet">
+                    <div data-cc-widget-header title="{{vm.title}}"></div>
+                    <div class="widget-content user">
+                        <h3>TODO: Implement Your Features</h3>
+                    </div>
+                    <div class="widget-foot">
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="widget wviolet">
+                        <div data-cc-widget-header title="משתמשים"
+                             allow-collapse="true"></div>
+                        <div class="widget-content text-center text-info">
+                            <table class="table table-condensed table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>User Name</th>
+                                        <th>Role</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr data-ng-repeat="u in vm.users">
+                                        <td>{{u.UserName}}</td>
+                                        <td>{{u.Role}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="widget-foot">
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="widget wgreen">
+                        <div data-cc-widget-header title="ניהול משתמשים"
+                             allow-collapse="true"></div>
+                        <div class="widget-content text-center text-info">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div ng-click="form = !form" class="btn btn-info pull-right">הוסף חשבון</div>
+                                </div>
+                            </div>
+                            <div ng-show="form" class="row ng-hide">
+                                <div class="col-sm-12">
+                                    <form name="userForm" ng-submit="vm.submitForm(userForm.$valid)" class="form-inline" novalidate>
+                                        <div class="col-sm-7">
+                                            <div class="form-group" ng-class="{ 'has-error' : userForm.Email.$invalid && !userForm.Email.$pristine }">
+                                                <div class="input-group">
+                                                    <label class="sr-only" for="Email">Email address</label>
+                                                    <div class="input-group-addon">@</div>
+                                                    <input type="email" ng-model="vm.user.email" class="form-control input-validation-error"
+                                                           id="Email" name="Email" placeholder="Enter email" required />
+                                                </div>
+                                            </div>
+                                            <div class="form-group pull-right" ng-class="{ 'has-error' :userForm.Password.$invalid || userForm.PasswordConfirm.$invalid}">
+                                                <label class=" sr-only" for="Password">
+                                                    Password
+                                                </label>
+                                                <input class="pull-right form-control input-validation-error" required type="password" ng-model="vm.user.password" class="form-control" id="Password" name="Password" placeholder="Password">
+                                                <input required type="password" class="pull-left form-control input-validation-error" compare-to="vm.user.password" ng-model="vm.user.passwordConfirm" id="PasswordConfirm" name="PasswordConfirm" placeholder="Confirm Password">
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <div ng-messages="userForm.Email.$error" style="color:maroon" ng-messages-multiple>
+                                                        <div ng-message="required">שדה מייל חובה</div>
+                                                        <div ng-message="email">מייל לא תקין</div>
+                                                    </div>
+                                                    <div ng-messages="userForm.Password.$error" style="color:maroon" ng-messages-multiple>
+                                                        <div ng-message="required">שדה סיסמה חובה</div>
+                                                    </div>
+                                                    <div ng-messages="userForm.PasswordConfirm.$error" style="color:maroon" ng-messages-multiple>
+                                                        <div ng-message="required">שדה סיסמה חובה</div>
+                                                        <div ng-message="compareTo">אימות סיסמה לא תקין</div>
+                                                    </div>
+                                                    <div ng-messages="userForm.Rolse.$error" style="color:maroon" ng-messages-multiple>
+                                                        <div ng-message="required">בחר הרשאה</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <div class="form-group pull-right" ng-class="{ 'has-error' :userForm.Rolse.$invalid}">
+                                                <select class="form-control input-validation-error" name="Rolse" id="Rolse" ng-model="vm.user.selectedRole" ng-options="role.Name for role in vm.roles" required>
+                                                    <option value="">סוג הרשאה</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <button ng-disabled="userForm.$invalid" type="submit" class="btn btn-primary pull-left">
+                                                    הוסף
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="widget-foot">
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
