@@ -48,12 +48,12 @@ namespace Distributions.Web.Models
 
     public class LoginViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "חובה דואל חוקי")]
         [Display(Name = "Email")]
-        [EmailAddress]
+        [EmailAddress(ErrorMessage = "כתובת דואל לא חוקית")]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "חובה סיסמה")]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
