@@ -39,7 +39,7 @@
                     </div>
                 </div>
                 <div class="col-sm-6">
-                    <div class="widget wgreen">
+                    <div class="widget wviolet">
                         <div data-cc-widget-header title="ניהול משתמשים"
                              allow-collapse="true"></div>
                         <div class="widget-content text-center text-info">
@@ -110,5 +110,61 @@
                 </div>
             </div>
         </div>
+    </section>
+    <section class="matter">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="widget wlightblue">
+                            <div data-cc-widget-header title="ניהול מוצרים"></div>
+                            <div class="widget-content user">
+                                <h3>כל המוצרים</h3>
+                                <div>חיפוש: <input ng-model="vm.searchText"></div>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="widget wlightblue">
+                                                <div data-cc-widget-header title="טבלת מוצרים"
+                                                     allow-collapse="true"></div>
+                                                <div class="widget-content text-center text-info">
+                                                    <table class="table table-condensed table-striped">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>שם מוצר</th>
+                                                                <th>כמות</th>
+                                                                <th>מחיר א - ה</th>
+                                                                <th>מחיר ה - א</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr data-ng-repeat="product in vm.products | filter:vm.searchText | orderBy:product.Name">
+                                                                <td>{{product.Name}}</td>
+                                                                <td>{{product.Quantity}}</td>
+                                                                <td>{{product.Price}}</td>
+                                                                <td>{{product.WeekendPrice}}</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="widget wlightblue">
+                                                <div data-cc-widget-header title="הוספת וערית מוצר"
+                                                     allow-collapse="true"></div>
+                                                <div class="widget-content text-center text-info">
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="widget-foot">
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
     </section>
 </section>

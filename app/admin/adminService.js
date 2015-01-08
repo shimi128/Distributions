@@ -11,6 +11,7 @@
             getUsers: getUsers,
             getRoles: getRoles,
             addUser: addUser,
+            getAllProducts: getAllProducts,
         };
 
         return service;
@@ -34,6 +35,34 @@
             .error(function(data, status, headers, config) {
                 return status;
             });
+        }
+
+        function getAllProducts() {
+            return [{
+                    "Name": "פיתות",
+                    "Quantity": "10",
+                    "Price": "25",
+                    "WeekendPrice":"30"
+                },
+                 {
+                    "Name": "פיתות קמח מלא",
+                    "Quantity": "10",
+                    "Price": "35",
+                    "WeekendPrice":"40"
+                },
+                 {
+                    "Name": "ג'בטה",
+                    "Quantity": "10",
+                    "Price": "45",
+                    "WeekendPrice":"50"
+                },
+                 {
+                    "Name": "ג'בטה קמח מלא",
+                    "Quantity": "10",
+                    "Price": "55",
+                    "WeekendPrice":"60"
+                }
+            ];
         }
     }
 })();
